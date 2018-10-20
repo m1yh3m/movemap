@@ -114,3 +114,8 @@ h1 {
 .piece.bishop {
     background-image: url('./img/sprites_03.png');
 }
+
+.piece.queen {
+    background-image: url('./img/sprites_02.png');
+}
+

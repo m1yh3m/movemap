@@ -28,13 +28,27 @@ $(document).ready(function () {
             }
             return next
         },
-        'bishop': function rookWalk(next, x, y, val, steps) {
+        'bishop': function bishopWalk(next, x, y, val, steps) {
             // bishop!
             for (let i = 0; i < 8; i++) {
                 next.push(tagSquare(x - i, y - i, val, steps))
                 next.push(tagSquare(x + i, y + i, val, steps))
                 next.push(tagSquare(x + i, y - i, val, steps))
                 next.push(tagSquare(x - i, y + i, val, steps))
+            }
+            return next
+        },
+        'queen': function queenWalk(next, x, y, val, steps) {
+            // queen!
+            for (let i = 0; i < 8; i++) {
+                // from bishop
+                next.push(tagSquare(x - i, y - i, val, steps))
+                next.push(tagSquare(x + i, y + i, val, steps))
+                next.push(tagSquare(x + i, y - i, val, steps))
+                next.push(tagSquare(x - i, y + i, val, steps))
+                // from rook
+                next.push(tagSquare(i, y, val, steps))
+                next.push(tagSquare(x, i, val, steps))
             }
             return next
         },
