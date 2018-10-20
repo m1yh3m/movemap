@@ -21,11 +21,11 @@ $(document).ready(function () {
             return next
         },
         'rook': function rookWalk(next, x, y, val, steps) {
-            // pawn!
-            next.push(tagSquare(x - 7, y + 0, val, steps));
-            next.push(tagSquare(x + 0, y - 7, val, steps));
-            next.push(tagSquare(x + 7, y + 0, val, steps));
-            next.push(tagSquare(x + 0, y + 7, val, steps));
+            // rook!
+            for(let i = 0; i < 8; i++) {
+                next.push(tagSquare(i, y, val, steps))
+                next.push(tagSquare(x, i, val, steps))
+            }
             return next
         },
         'king': function kingWalk(next, x, y, val, steps) {
@@ -47,7 +47,7 @@ $(document).ready(function () {
     var tagged = {};
 
     var index = {};
-    var rows = ['8', '7', '6', '5', '4', '3', '2', '1'];
+    var ranks = ['8', '7', '6', '5', '4', '3', '2', '1'];
     var files = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'];
 
 
@@ -57,27 +57,27 @@ $(document).ready(function () {
         $('.board').empty();
 
         var square = $("<div class='square'></div>");
-        var addRow = (rowId) => {
-            var row = $("<div class='row'></div>");
-            board[rowId] = [];
-            tagged[rowId] = [];
+        var addRank = (rankId) => {
+            var rank = $("<div class='rank'></div>");
+            board[rankId] = [];
+            tagged[rankId] = [];
 
             for (var i = 0; i < 8; i++) {
-                var identifier = files[i] + rows[rowId];
+                var identifier = files[i] + ranks[rankId];
                 var newSquare = square
                     .clone()
                     .addClass(identifier)
                     .append(`<span class='identifier'>${identifier}</span>`)
                     .append(`<span class='txt'>-</span>`);
-                row.append(newSquare);
-                board[rowId][i] = identifier;
-                index[identifier] = [rowId, i];
+                rank.append(newSquare);
+                board[rankId][i] = identifier;
+                index[identifier] = [rankId, i];
             }
-            $('.board').append(row);
+            $('.board').append(rank);
         }
 
         for (var i = 0; i < 8; i++) {
-            addRow(i);
+            addRank(i);
         }
         $(".square").on("click", clickHandler);
     };
@@ -95,7 +95,6 @@ $(document).ready(function () {
         if (x >= 0 && x < 8 && y >= 0 && y < 8) {
             sq = board[x][y];
             if (!tagged[sq] || tagged[sq] > val) {
-                var cur = $("." + sq).find(".txt").text();
                 $("." + sq).find(".txt").text(val);
                 $("." + sq).addClass("heat-" + val);
                 tagged[sq] = val;
@@ -103,14 +102,13 @@ $(document).ready(function () {
                     return { x: x, y: y, val: ++val, steps: --steps };
                 }
             }
-
         }
     }
 
-    var renderPath = (walk, x, y, val, steps) => {
-        var next = [];
 
-        next = walk(next, x, y, val, steps)
+
+    var renderPath = (walk, x, y, val, steps) => {
+        var next = walk([], x, y, val, steps);
 
         next.forEach((sq) => {
             if (sq && sq.x) renderPath(walk, sq.x, sq.y, sq.val, sq.steps);
@@ -124,7 +122,7 @@ $(document).ready(function () {
         var pos = index[sq];
         var x = pos[0];
         var y = pos[1];
-        renderPath(walks[piecename], x, y, 1, 7);
+        renderPath(walks[piecename], x, y, 1, 8);
         $("." + sq).find(".txt").addClass("hide").html("&nbsp;");
     }
 

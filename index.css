@@ -39,19 +39,19 @@ h1 {
     opacity: 0.3;
 }
 
-.row:nth-child(odd) .square:nth-child(even) {
+.rank:nth-child(odd) .square:nth-child(even) {
     background: #87A569;
 }
 
-.row:nth-child(odd) .square:nth-child(odd) {
+.rank:nth-child(odd) .square:nth-child(odd) {
     background: #FFFEDE;
 }
 
-.row:nth-child(even) .square:nth-child(odd) {
+.rank:nth-child(even) .square:nth-child(odd) {
     background: #87A569;
 }
 
-.row:nth-child(even) .square:nth-child(even) {
+.rank:nth-child(even) .square:nth-child(even) {
     background: #FFFEDE;
 }
 
