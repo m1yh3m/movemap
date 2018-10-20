@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Chess piece's distance heatmap</title>
+    <script src="jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="movemap.css" />
+</head>
+
+<body>
+    <h1>Chess board insights</h1>
+
+    <fieldset>
+        <legend>Navigation</legend>
+        <a href="./index.html">Home</a> |
+        <a href="./movemap.html">Movemap</a> |
+        <a href="./inflictionmap.html">Inflictionmap</a>
+    </fieldset>
+
+    <h2>Chess pieces' move heatmap</h2>
+    <div class="actions">
+        <fieldset>
+            <legend>Pick a piece</legend>
+            <a href="#board" name="knight">knight</a> |
+            <a href="#board" name="king">king</a> |
+            <a href="#board" name="pawn">pawn</a> |
+            <a href="#board" name="rook">rook</a> |
+            <a href="#board" name="bishop">bishop</a> |
+            <a href="#board" name="queen">queen</a>
+        </fieldset>
+    </div>
+
+    <div class="hidden">
+        <input type="text" value="knight" id="piece" />
+        <input type="text" value="d3" id="square" />
+    </div>
+
+    <div class="board"></div>
+
+    <script type="text/javascript" src="movemap.js"></script>
+</body>
+
+</html>
