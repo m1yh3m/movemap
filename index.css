@@ -110,3 +110,7 @@ h1 {
 .piece.rook {
     background-image: url('./img/sprites_05.png');
 }
+
+.piece.bishop {
+    background-image: url('./img/sprites_03.png');
+}

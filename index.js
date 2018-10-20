@@ -22,9 +22,19 @@ $(document).ready(function () {
         },
         'rook': function rookWalk(next, x, y, val, steps) {
             // rook!
-            for(let i = 0; i < 8; i++) {
+            for (let i = 0; i < 8; i++) {
                 next.push(tagSquare(i, y, val, steps))
                 next.push(tagSquare(x, i, val, steps))
+            }
+            return next
+        },
+        'bishop': function rookWalk(next, x, y, val, steps) {
+            // bishop!
+            for (let i = 0; i < 8; i++) {
+                next.push(tagSquare(x - i, y - i, val, steps))
+                next.push(tagSquare(x + i, y + i, val, steps))
+                next.push(tagSquare(x + i, y - i, val, steps))
+                next.push(tagSquare(x - i, y + i, val, steps))
             }
             return next
         },
