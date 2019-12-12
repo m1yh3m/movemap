@@ -9,7 +9,7 @@ Chess Visualizations
 
 ## Play here
 
-https://m1yh3m.github.io/movemap
+https://m1yh3m.github.io/movemap/index.html
 
 ## ORIGINALLY
 
