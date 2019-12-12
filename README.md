@@ -2,10 +2,17 @@
 
 Chess Visualizations
 
+![](./output/1.png)
+![](./output/2.png)
+![](./output/3.png)
+![](./output/4.png)
+
 ## Play here
 
-https://f0c1s.github.io/movemap
+https://m1yh3m.github.io/movemap
 
 ## ORIGINALLY
+
+https://f0c1s.github.io/movemap
 
 Play with it here: https://hookdump.github.io/chessy/

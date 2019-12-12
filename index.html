@@ -5,28 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chess board insights</title>
-    <script src="jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <title>Chess piece's distance heatmap</title>
+    <script src="./jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="movemap-2K.css" />
 </head>
 
 <body>
-    <h1>Chess board insights</h1>
 
-    <fieldset>
-        <legend>Navigation</legend>
-        <a href="./index.html">Home</a> |
-        <a href="./movemap.html">Movemap</a> |
-        <a href="./inflictionmap.html">Inflictionmap</a>
-    </fieldset>
+    <h2>Chess pieces' move heatmap for TWO KNIGHTS</h2>
+    <input type="radio" name="selected-knight" value="knight1"> knight 1<br>
+    <input type="radio" name="selected-knight" value="knight2"> knight 2<br>
 
-    <p>Please visit movemap. Infliction map is incomplete.</p>
+    <div class="hidden">
+        <input type="text" value="knight1" id="knight1" />
+        <input type="text" value="knight2" id="knight2" />
+        <input type="text" value="d3" id="square" />
+    </div>
 
-    <section>
-        <h4>About</h4>
-        <p>f0c1s is building this app.</p>
-        <p>This is built upon Ignacio Freiberg&apos;s original app <a href="https://github.com/hookdump/chessy">chessy</a>.</a></p>
-    </section>
+    <div class="board"></div>
+    <div>
+        <a href="./movemap.html">Movemap</a>
+    </div>
+    <script type="text/javascript" src="movemap-2K.js"></script>
 </body>
 
 </html>
